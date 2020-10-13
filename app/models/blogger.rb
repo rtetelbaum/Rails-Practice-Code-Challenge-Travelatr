@@ -13,4 +13,8 @@ class Blogger < ApplicationRecord
 		end
 		likes.sum
 	end
+
+	def featured_post
+		self.posts.max_by { |post| post.likes }
+	end
 end
